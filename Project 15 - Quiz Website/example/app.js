@@ -2,54 +2,76 @@
 'use strict';
 
 function resetResult() {
-    document.getElementById("LAResult").style.display = "none";
-    document.getElementById("SeattleResult").style.display = "none";
-    document.getElementById("MiamiResult").style.display = "none";
-    document.getElementById("ChicagoResult").style.display = "none";
+    document.getElementById("soccer").style.display = "none";
+    document.getElementById("basketball").style.display = "none";
+    document.getElementById("gymnastics").style.display = "none";
+    document.getElementById("baseball").style.display = "none";
 }
 
 function seeResult() {
-    var LA = 0;
-    var Seattle = 0;
-    var Miami = 0;
-    var Chicago = 0;
+    var soccer = 0;
+    var basketball = 0;
+    var gymnastics = 0;
+    var baseball = 0;
 
-    if (document.getElementById("hot").checked) {
-        LA += 1;
-        Miami += 1;
-    } else if (document.getElementById("cold").checked) {
-        Chicago += 1;
+    if (document.getElementById("inside").checked) {
+        gymnastics += 1;
+        basketball += 1;
+    } else if (document.getElementById("outside").checked) {
+        soccer += 1;
     } else {
-        Seattle += 1;
+        baseball += 1;
     }
 
-    if (document.getElementById("bus").checked) {
-        Miami += 1;
-    } else if (document.getElementById("car").checked) {
-        LA += 1;
+    if (document.getElementById("yes").checked) {
+        soccer += 1;
+        basketball += 1;
+        baseball += 1;
+    } else if (document.getElementById("no").checked) {
+        gymnastics += 1;
     } else {
-        Seattle += 1;
-        Chicago += 1;
+        soccer += 1;
+        
     }
 
-    if (document.getElementById("walk").checked) {
-        Seattle += 1;
-        Miami += 1;
-    } else if (document.getElementById("drive").checked) {
-        LA += 1;
+    if (document.getElementById("very").checked) {
+        gymnastics += 1;
+
+    } else if (document.getElementById("somewhat").checked) {
+        soccer += 1;
     } else {
-        Chicago += 1;
+        basketball += 1;
+        baseball += 1;
     }
 
+    if (document.getElementById("its my best skill!").checked) {
+        baseball += 1;
+        basketball += 1;
+
+    } else if (document.getElementById("mid").checked) {
+        soccer += 1;
+    } else {
+        gymnastics += 1;
+    }
+       
+        if (document.getElementById("very fast!").checked) {
+            soccer += 1;
+    
+        } else if (document.getElementById("mid").checked) {
+            baseball += 1;
+        } else {
+            gymnastics += 1;
+            basketball += 1;
+        }
     resetResult();
 
-    if (LA > Seattle && LA > Miami && LA > Chicago) {
-        document.getElementById("LAResult").style.display = "block";
+    if (soccer> basketball && soccer > gymnastics && soccer > baseball) {
+        document.getElementById("soccer").style.display = "block";
     } else if (Seattle > LA && Seattle > Miami && Seattle > Chicago) {
-        document.getElementById("SeattleResult").style.display = "block";
+        document.getElementById("basketball").style.display = "block";
     } else if (Miami > LA && Miami > Seattle && Miami > Chicago) {
-        document.getElementById("MiamiResult").style.display = "block";
+        document.getElementById("gymnastics").style.display = "block";
     } else {
-        document.getElementById("ChicagoResult").style.display = "block";
+        document.getElementById("baseball").style.display = "block";
     }
 }
