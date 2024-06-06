@@ -63,15 +63,50 @@ function seeResult() {
             gymnastics += 1;
             basketball += 1;
         }
+
+        if (document.getElementById("yes its a need").checked) {
+            basketball += 1;
+            soccer += 1;
+    
+        } else if (document.getElementById("idc either way").checked) {
+            baseball += 1;
+        } else {
+            gymnastics += 1;
+            
+        }
+
+        if (document.getElementById("spring").checked) {
+            baseball += 1;
+            soccer += 1;
+    
+        } else if (document.getElementById("fall").checked) {
+            basketball += 1;
+        } else {
+            gymnastics += 1;
+            
+        }
+
+        if (document.getElementById("extremely").checked) {
+            basketball += 1;
+            
+        } else if (document.getElementById("no im short").checked) {
+            gymnastics += 1;
+        } else {
+            soccer += 1;
+            baseball += 1;
+            
+        }
     resetResult();
 
     if (soccer> basketball && soccer > gymnastics && soccer > baseball) {
         document.getElementById("soccer").style.display = "block";
-    } else if (Seattle > LA && Seattle > Miami && Seattle > Chicago) {
+    } else if (basketball > soccer && basketball > baseball && basketball > gymnastics) {
         document.getElementById("basketball").style.display = "block";
-    } else if (Miami > LA && Miami > Seattle && Miami > Chicago) {
-        document.getElementById("gymnastics").style.display = "block";
-    } else {
+    } else if (baseball > soccer && baseball > basketball && baseball > gymnastics) {
         document.getElementById("baseball").style.display = "block";
+    }else if (gymnastics > basketball && gymnastics > soccer && gymnastics > baseball) {
+            document.getElementById("gymnastics").style.display = "block";
+    } else {
+        document.getElementById("gymnastics").style.display = "block";
     }
 }
